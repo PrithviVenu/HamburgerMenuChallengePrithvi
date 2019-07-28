@@ -9,7 +9,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid Name="MainPanel" Background="White" Margin="10" Height="275" Width="200">
+    <Grid Name="MainPanel" Background="White" Margin="5,0,0,0" Height="275" Width="200">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />

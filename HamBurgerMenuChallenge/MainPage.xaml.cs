@@ -29,11 +29,27 @@ namespace HamBurgerMenuChallenge
         {
             this.InitializeComponent();
             NewsItems = new ObservableCollection<NewsItem>();
+            NewsManager.GetNews("Financial", NewsItems);
+            TitleTextBlock.Text = "Financial";
+            BackButton.Visibility = Visibility.Collapsed;
+
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
             MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+        }
+
+        private void BackButtonClicked(object sender, RoutedEventArgs e)
+        {
+            if (Food.IsSelected)
+            {
+                NewsManager.GetNews("Financial", NewsItems);
+                TitleTextBlock.Text = "Financial";
+                BackButton.Visibility = Visibility.Collapsed;
+                Financial.IsSelected = true;
+
+            }
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -42,11 +58,15 @@ namespace HamBurgerMenuChallenge
             {
                 NewsManager.GetNews("Financial", NewsItems);
                 TitleTextBlock.Text = "Financial";
+                BackButton.Visibility = Visibility.Collapsed;
+
             }
             else if (Food.IsSelected)
             {
                 NewsManager.GetNews("Food", NewsItems);
                 TitleTextBlock.Text = "Food";
+                BackButton.Visibility = Visibility.Visible;
+
             }
         }
 
