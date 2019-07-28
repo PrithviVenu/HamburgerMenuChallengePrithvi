@@ -2,6 +2,9 @@
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <EnableXBindDiagnostics>false</EnableXBindDiagnostics>
+  </PropertyGroup>
+  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{103E214B-E6CF-41F4-A999-DD33B8A26BAE}</ProjectGuid>
@@ -127,6 +130,10 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\NewsItem.cs" />
+    <Compile Include="NewsItemControl.xaml.cs">
+      <DependentUpon>NewsItemControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -136,7 +143,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Financial.png" />
+    <Content Include="Assets\Financial1.png" />
+    <Content Include="Assets\Financial2.png" />
+    <Content Include="Assets\Financial3.png" />
+    <Content Include="Assets\Financial4.png" />
+    <Content Include="Assets\Financial5.png" />
     <Content Include="Assets\Food.png" />
+    <Content Include="Assets\Food1.png" />
+    <Content Include="Assets\Food2.png" />
+    <Content Include="Assets\Food3.png" />
+    <Content Include="Assets\Food4.png" />
+    <Content Include="Assets\Food5.png" />
+    <Content Include="Assets\UWP-044-A.png" />
+    <Content Include="Assets\UWP-044-B.png" />
+    <Content Include="Assets\UWP-044-C.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -162,6 +182,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NewsItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

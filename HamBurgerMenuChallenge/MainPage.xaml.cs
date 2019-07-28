@@ -1,5 +1,7 @@
-﻿using System;
+﻿using HamBurgerMenuChallenge.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,44 +24,37 @@ namespace HamBurgerMenuChallenge
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private ObservableCollection<NewsItem> NewsItems;
         public MainPage()
         {
             this.InitializeComponent();
-            MyFrame.Navigate(typeof(Financial));
-            TitleTextBlock.Text = "Financial";
-            BackButton.Visibility = Visibility.Collapsed;
-            Financial.IsSelected = true;
+            NewsItems = new ObservableCollection<NewsItem>();
         }
-        private void HamburgerButtonClicked(object sender, RoutedEventArgs e)
+
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
             MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
         }
-        private void BackButtonClicked(object sender, RoutedEventArgs e)
-        {
-            if (MyFrame.CanGoBack)
-            {
-                MyFrame.GoBack();
-                Financial.IsSelected = true;
-            }
-         }
-        private void FrameSelectionChanged(object sender, RoutedEventArgs e)
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (Financial.IsSelected)
             {
-                MyFrame.Navigate(typeof(Financial));
+                NewsManager.GetNews("Financial", NewsItems);
                 TitleTextBlock.Text = "Financial";
-                BackButton.Visibility = Visibility.Collapsed;
-
             }
             else if (Food.IsSelected)
             {
-                MyFrame.Navigate(typeof(Food));
+                NewsManager.GetNews("Food", NewsItems);
                 TitleTextBlock.Text = "Food";
-                BackButton.Visibility = Visibility.Visible;
-
             }
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Financial.IsSelected = true;
+        }
     }
-   
+
 
 }
