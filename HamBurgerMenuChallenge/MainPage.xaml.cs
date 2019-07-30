@@ -31,8 +31,6 @@ namespace HamBurgerMenuChallenge
             NewsItems = new ObservableCollection<NewsItem>();
             NewsManager.GetNews("Financial", NewsItems);
             TitleTextBlock.Text = "Financial";
-            BackButton.Visibility = Visibility.Collapsed;
-
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
@@ -46,7 +44,6 @@ namespace HamBurgerMenuChallenge
             {
                 NewsManager.GetNews("Financial", NewsItems);
                 TitleTextBlock.Text = "Financial";
-                BackButton.Visibility = Visibility.Collapsed;
                 Financial.IsSelected = true;
 
             }
@@ -58,14 +55,12 @@ namespace HamBurgerMenuChallenge
             {
                 NewsManager.GetNews("Financial", NewsItems);
                 TitleTextBlock.Text = "Financial";
-                BackButton.Visibility = Visibility.Collapsed;
 
             }
             else if (Food.IsSelected)
             {
                 NewsManager.GetNews("Food", NewsItems);
                 TitleTextBlock.Text = "Food";
-                BackButton.Visibility = Visibility.Visible;
 
             }
         }

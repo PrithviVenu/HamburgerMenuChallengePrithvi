@@ -48,17 +48,8 @@
               Click="HamburgerButton_Click"
                     />
 
-            <Button Name="BackButton"
-                    RelativePanel.RightOf="HamburgerButton" 
-                    FontFamily="Segoe MDl2 Assets" 
-                    FontSize="36"
-                    Content="&#xE0C4;" 
-                    Click="BackButtonClicked"
-                     />
-
-
             <TextBlock Name="TitleTextBlock"
-                 RelativePanel.RightOf="BackButton"
+                 RelativePanel.RightOf="HamburgerButton"
                  FontSize="18"
                  FontWeight="Bold"
                  Margin="20,10,0,0" />
@@ -105,7 +96,6 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <GridView Name="NewsItemGrid"
-                  Background="LightGray"
                   ItemsSource="{x:Bind NewsItems}"
                   HorizontalAlignment="Stretch"
                   Margin="10,0,0,0">
